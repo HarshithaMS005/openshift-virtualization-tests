@@ -486,12 +486,12 @@ def remove_tests_from_list(items: list[Item], filter_str: str) -> tuple[list[Ite
     return discard_tests, items_to_return
 
 
-def pytest_configure(config):
-    # test_deprecation_audit_logs should always run regardless the path that passed to pytest.
-    deprecation_tests_dir_path = "tests/deprecated_api"
-    file_or_dir = config.option.file_or_dir
-    if file_or_dir and deprecation_tests_dir_path not in file_or_dir and file_or_dir != ["tests"]:
-        config.option.file_or_dir.append(deprecation_tests_dir_path)
+# def pytest_configure(config):
+#     # test_deprecation_audit_logs should always run regardless the path that passed to pytest.
+#     deprecation_tests_dir_path = "tests/deprecated_api"
+#     file_or_dir = config.option.file_or_dir
+#     if file_or_dir and deprecation_tests_dir_path not in file_or_dir and file_or_dir != ["tests"]:
+#         config.option.file_or_dir.append(deprecation_tests_dir_path)
 
     if conformance_storage_class := config.getoption("conformance_storage_class"):
         py_config["storage_class_matrix"] = StorageClassConfig(
