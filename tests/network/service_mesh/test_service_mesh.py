@@ -15,6 +15,7 @@ pytestmark = pytest.mark.service_mesh
 class TestSMTrafficManagement:
     @pytest.mark.polarion("CNV-5782")
     @pytest.mark.single_nic
+    @pytest.mark.mysmoke()
     def test_service_mesh_traffic_management(
         self,
         traffic_management_service_mesh_convergence,
@@ -30,6 +31,7 @@ class TestSMTrafficManagement:
 
     @pytest.mark.polarion("CNV-7304")
     @pytest.mark.single_nic
+    @pytest.mark.mysmoke()
     def test_service_mesh_traffic_management_manipulated_rule(
         self,
         traffic_management_service_mesh_convergence,

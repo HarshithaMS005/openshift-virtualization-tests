@@ -16,7 +16,7 @@ def assert_ip_mismatch(vm):
     sampler = TimeoutSampler(
         wait_timeout=10,
         sleep=1,
-        func=lambda: vm.interface_ip(interface="eth0") == vm.virt_launcher_pod.ip,
+        func=lambda: vm.interface_ip(interface="eth0") != vm.virt_launcher_pod.ip,
     )
     for sample in sampler:
         if sample:
