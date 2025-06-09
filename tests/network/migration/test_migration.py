@@ -326,6 +326,7 @@ def brcnv_migrated_vm(
 )
 @pytest.mark.ipv4
 @pytest.mark.polarion("CNV-2060")
+@pytest.mark.mysmoke()
 def test_ping_vm_migration(
     vma,
     vmb,
@@ -339,6 +340,7 @@ def test_ping_vm_migration(
 
 @pytest.mark.ipv4
 @pytest.mark.polarion("CNV-2063")
+@pytest.mark.mysmoke()
 def test_ssh_vm_migration(
     namespace,
     br1test_nad,
@@ -407,6 +409,7 @@ def test_migration_with_masquerade(
 
 @pytest.mark.ipv4
 @pytest.mark.polarion("CNV-6548")
+@pytest.mark.mysmoke()
 def test_ping_from_migrated_vm(
     br1test_nad,
     vma,
