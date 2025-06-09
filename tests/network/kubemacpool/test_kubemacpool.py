@@ -18,10 +18,16 @@ class TestKMPConnectivity:
     # |.......|---eth4:10.200.4.1: Automatic mac tuning network :10.200.4.2:eth4---|........|
     @pytest.mark.post_upgrade
     @pytest.mark.polarion("CNV-2154")
+    @pytest.mark.mysmoke()
     def test_manual_mac_from_pool(self, namespace, running_vm_a, running_vm_b):
         """Test that manually assigned mac address from pool is configured and working"""
         for vm in (running_vm_a, running_vm_b):
             kmp_utils.assert_manual_mac_configured(vm=vm, iface_config=vm.manual_mac_iface_config)
+            vm_a_ssh = running_vm_a.ssh()
+            vm_a_ssh.execute("ip a show eth1")
+            vm_a_ssh.execute("ip route")
+            vm_a_ssh.execute("arp -n")
+            vm_a_ssh.execute(f"ping -I eth1 {running_vm_b.manual_mac_iface_config.ip_address}")
         assert_ping_successful(src_vm=running_vm_a, dst_ip=running_vm_b.manual_mac_iface_config.ip_address)
 
     @pytest.mark.polarion("CNV-2156")

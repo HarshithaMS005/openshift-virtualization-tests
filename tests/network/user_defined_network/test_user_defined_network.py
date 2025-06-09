@@ -111,6 +111,7 @@ class TestPrimaryUdn:
 
     @pytest.mark.polarion("CNV-11674")
     @pytest.mark.single_nic
+    @pytest.mark.mysmoke()
     def test_ip_address_is_preserved_after_live_migration(self, vma_udn):
         ip_before_migration = lookup_iface_status(vm=vma_udn, iface_name=lookup_primary_network(vm=vma_udn).name)[
             IP_ADDRESS

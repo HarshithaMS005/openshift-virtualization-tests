@@ -794,7 +794,9 @@ def get_ip_from_vm_or_virt_handler_pod(family, vm=None, virt_handler_pod=None):
         raise ValueError("must send VM or virt-handler pod")
 
     if vm:
-        addr_list = vm.vmi.interfaces[0]["ipAddresses"]
+        interface = vm.vmi.interfaces[0]
+        addr_list = interface.get("ipAddresses") or [interface.get("ipAddress")] if interface.get("ipAddress") else []
+        #addr_list = vm.vmi.interfaces[0]["ipAddresses"]
     else:
         addr_list = [ip_addr["ip"] for ip_addr in virt_handler_pod.instance.status.podIPs]
 

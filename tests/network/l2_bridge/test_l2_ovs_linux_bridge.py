@@ -52,6 +52,7 @@ class TestL2LinuxBridge:
     """
 
     @pytest.mark.polarion("CNV-2285")
+    @pytest.mark.mysmoke()
     def test_connectivity_l2_bridge(
         self,
         configured_l2_bridge_vm_a,
@@ -67,6 +68,7 @@ class TestL2LinuxBridge:
         )
 
     @pytest.mark.polarion("CNV-2282")
+    @pytest.mark.mysmoke()
     def test_dhcp_broadcast(
         self,
         dhcp_nad,
