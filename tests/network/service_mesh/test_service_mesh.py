@@ -52,6 +52,7 @@ class TestSMPeerAuthentication:
     @pytest.mark.ipv4
     @pytest.mark.polarion("CNV-5784")
     @pytest.mark.single_nic
+    @pytest.mark.mysmoke()
     @pytest.mark.dependency(
         name="test_authentication_policy_from_mesh",
     )

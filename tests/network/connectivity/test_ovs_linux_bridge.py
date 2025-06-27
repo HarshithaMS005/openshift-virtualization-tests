@@ -12,6 +12,7 @@ from utilities.network import assert_ping_successful, get_vmi_ip_v4_by_name
 class TestConnectivityLinuxBridge:
     @pytest.mark.gating
     @pytest.mark.post_upgrade
+    @pytest.mark.mysmoke()
     @pytest.mark.parametrize(
         "use_default_bridge",
         [
@@ -53,6 +54,7 @@ class TestConnectivityLinuxBridge:
     @pytest.mark.ipv6
     @pytest.mark.single_nic
     @pytest.mark.jira("CNV-58529", run=True)
+    @pytest.mark.mysmoke()
     def test_ipv6_linux_bridge(
         self,
         fail_if_not_ipv6_supported_cluster,
@@ -110,6 +112,7 @@ class TestConnectivityLinuxBridge:
 @pytest.mark.usefixtures("hyperconverged_ovs_annotations_enabled_scope_session")
 class TestConnectivityOVSBridge:
     @pytest.mark.post_upgrade
+    @pytest.mark.mysmoke()
     @pytest.mark.parametrize(
         "use_default_bridge",
         [
