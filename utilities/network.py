@@ -761,6 +761,7 @@ def assert_ping_successful(
     count=None,
     interface=None,
 ):
+    LOGGER.info(f"--------------------------ping returned {dst_ip}")
     if packet_size and packet_size > 1500:
         # ICMP packet reductions:
         icmp_header = 8
