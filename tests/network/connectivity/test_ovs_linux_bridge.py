@@ -12,6 +12,7 @@ from utilities.network import assert_ping_successful, get_vmi_ip_v4_by_name
 class TestConnectivityLinuxBridge:
     @pytest.mark.gating
     @pytest.mark.post_upgrade
+    @pytest.mark.mysmoke()
     @pytest.mark.parametrize(
         "use_default_bridge",
         [
@@ -52,6 +53,7 @@ class TestConnectivityLinuxBridge:
     @pytest.mark.ipv6
     @pytest.mark.single_nic
     @pytest.mark.jira("CNV-58529", run=True)
+    @pytest.mark.mysmoke()
     def test_ipv6_linux_bridge(
         self,
         fail_if_not_ipv6_supported_cluster,
@@ -73,6 +75,7 @@ class TestConnectivityLinuxBridge:
     @pytest.mark.post_upgrade
     @pytest.mark.polarion("CNV-11123")
     @pytest.mark.ipv4
+    @pytest.mark.mysmoke()
     def test_positive_vlan_linux_bridge(
         self,
         nad_linux_bridge_vlan_1,
@@ -89,6 +92,7 @@ class TestConnectivityLinuxBridge:
 
     @pytest.mark.polarion("CNV-11131")
     @pytest.mark.ipv4
+    @pytest.mark.mysmoke()
     def test_negative_vlan_linux_bridge(
         self,
         nad_linux_bridge_vlan_3,
@@ -107,6 +111,7 @@ class TestConnectivityLinuxBridge:
 @pytest.mark.usefixtures("hyperconverged_ovs_annotations_enabled_scope_session")
 class TestConnectivityOVSBridge:
     @pytest.mark.post_upgrade
+    @pytest.mark.mysmoke()
     @pytest.mark.parametrize(
         "use_default_bridge",
         [
@@ -167,6 +172,7 @@ class TestConnectivityOVSBridge:
     @pytest.mark.post_upgrade
     @pytest.mark.polarion("CNV-11129")
     @pytest.mark.ipv4
+    @pytest.mark.mysmoke()
     def test_positive_vlan_ovs_bridge(
         self,
         nad_ovs_bridge_vlan_1,
@@ -183,6 +189,7 @@ class TestConnectivityOVSBridge:
 
     @pytest.mark.polarion("CNV-11130")
     @pytest.mark.ipv4
+    @pytest.mark.mysmoke()
     def test_negative_vlan_ovs_bridge(
         self,
         nad_ovs_bridge_vlan_3,

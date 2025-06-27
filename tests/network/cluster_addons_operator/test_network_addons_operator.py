@@ -248,6 +248,7 @@ def test_linux_bridge_functionality(net_add_op_bridge_attached_vm):
 
 @pytest.mark.polarion("CNV-6754")
 @pytest.mark.single_nic
+@pytest.mark.mysmoke()
 def test_cnao_labels(
     admin_client,
     network_addons_config_scope_session,
