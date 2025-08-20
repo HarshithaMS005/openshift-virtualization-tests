@@ -71,9 +71,9 @@ class TestL2LinuxBridge:
     @pytest.mark.mysmoke()
     def test_dhcp_broadcast(
         self,
-        configured_l2_bridge_vm_a,
-        l2_bridge_running_vm_b,
         dhcp_nad,
+        l2_bridge_running_vm_b,
+        configured_l2_bridge_vm_a,
         started_vmb_dhcp_client,
     ):
         """
